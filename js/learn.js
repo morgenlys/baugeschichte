@@ -16,9 +16,37 @@ const feedbackEl = document.getElementById('feedback');
 const revealBtn = document.getElementById('revealBtn');
 const nextBtn = document.getElementById('nextBtn');
 const sourceMetaEl = document.getElementById('sourceMeta');
+const themeToggle = document.getElementById('themeToggle');
 
 const PLACEHOLDER = 'assets/images/_placeholder.svg';
 
+// ---- Theme (cookie) ----
+function setCookie(name, value, days = 365) {
+  const maxAge = days * 24 * 60 * 60;
+  document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=${maxAge}; Path=/; SameSite=Lax`;
+}
+function getCookie(name) {
+  const m = document.cookie.split(';').map(s => s.trim()).find(s => s.startsWith(name + '='));
+  return m ? decodeURIComponent(m.split('=')[1]) : null;
+}
+function applyTheme(theme) {
+  const t = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', t);
+  if (themeToggle) themeToggle.checked = (t === 'dark');
+}
+(function initTheme(){
+  const saved = getCookie('theme') || 'light';
+  applyTheme(saved);
+  if (themeToggle) {
+    themeToggle.addEventListener('change', () => {
+      const t = themeToggle.checked ? 'dark' : 'light';
+      applyTheme(t);
+      setCookie('theme', t);
+    });
+  }
+})();
+
+// ---- Utils ----
 function fallbackImg(){
   if(!imgEl) return;
   imgEl.onerror = null;
@@ -102,6 +130,25 @@ async function buildPoolFromSets(sets){
   return pool;
 }
 
+// Difficulty helpers (accepts number 1–5 or 'easy'|'medium'|'hard')
+function normalizeDiff(d) {
+  if (typeof d === 'number') return d;
+  if (typeof d === 'string') {
+    const s = d.toLowerCase();
+    if (s.includes('easy') || s.includes('leicht')) return 1;
+    if (s.includes('medium') || s.includes('mittel')) return 3;
+    if (s.includes('hard') || s.includes('schwer')) return 5;
+  }
+  return 3; // default medium
+}
+function difficultyThresholdForProgress(pct){
+  // <10%: only easy; 10–39: up to medium; 40–79: up to hard(4); >=80: allow 5
+  if (pct < 10) return 2;
+  if (pct < 40) return 3;
+  if (pct < 80) return 4;
+  return 5;
+}
+
 // --- Question engine ---
 class Engine{
   constructor(opts){
@@ -115,33 +162,47 @@ class Engine{
     this.current = null;
   }
 
-  // progress-aware type selection (first 10% only MC)
-  chooseType(){
-    const prog = getProgress(this.epochId);
-    if(this.mode==='epoch' && prog < 10){
-      return 'mc_only';
+  // type policy (first 10% only MC, then chance for input grows with progress)
+  chooseAnswerMode(){
+    if(this.mode==='epoch'){
+      const prog = getProgress(this.epochId);
+      if (prog < 10) return 'mc_only';
+      const r = Math.random();
+      // more input over time
+      if (prog < 40) return r < 0.25 ? 'input_ok' : 'mixed';
+      if (prog < 80) return r < 0.5 ? 'input_ok' : 'mixed';
+      return r < 0.7 ? 'input_ok' : 'mixed';
     }
     return 'mixed';
   }
 
   next(){
-    if(this.mode==='epoch'){
-      const q = this.randFrom(this.pack.questions);
-      return this.wrap(q);
-    }else{
-      const q = this.randFrom(this.pool);
-      return this.wrap(q);
-    }
+    const source = (this.mode==='epoch') ? this.pack.questions : this.pool;
+    // difficulty gating
+    const prog = this.mode==='epoch' ? getProgress(this.epochId) : 50;
+    const thr = difficultyThresholdForProgress(prog);
+    const cand = source.filter(q => normalizeDiff(q.difficulty) <= thr);
+
+    // pick and wrap
+    const q = this.randFrom(cand.length ? cand : source);
+    return this.wrap(q);
   }
 
   wrap(q){
-    // Build a runtime question with variants/distractors if needed
-    const tsel = this.chooseType();
-
+    const policy = this.chooseAnswerMode();
     let type = q.type;
-    if(tsel==='mc_only' && type.startsWith('input')) type = 'mc_building';
 
-    // Generate distractors for MC types if missing
+    // disallow epoch classification inside single-epoch learning
+    if(this.mode==='epoch' && type === 'epoch_mc'){
+      type = q.building ? 'mc_building' : (q.architects ? 'mc_architect' : 'mc_text');
+    }
+
+    // force MC if necessary
+    if(policy==='mc_only' && type.startsWith('input')) {
+      type = q.building ? 'mc_building' : (q.architects ? 'mc_architect' : 'mc_text');
+    }
+
+    // Generate options for MC types if missing
     if(type==='mc_building'){
       const options = this.makeBuildingOptions(q);
       return {...q, type, options};
@@ -154,7 +215,7 @@ class Engine{
       const options = this.makeEpochOptions(q);
       return {...q, type, options, allowMultiple: q.allowMultiple || false};
     }
-    return q;
+    return {...q, type};
   }
 
   randFrom(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
@@ -198,6 +259,7 @@ class Engine{
   }
 }
 
+// progress store
 function getProgress(id){
   if(!id) return 0;
   const raw = localStorage.getItem(`progress_${id}`);
@@ -209,13 +271,14 @@ function setProgress(id, val){
   localStorage.setItem(`progress_${id}`, String(v));
 }
 
+// UI
 function setUIForQuestion(q){
   // image + prompt
   imgEl.src = q.image || PLACEHOLDER;
   imgEl.onerror = fallbackImg;
   promptEl.textContent = q.prompt || '—';
   feedbackEl.hidden = true;
-  revealBtn.hidden = true;
+  revealBtn.hidden = false; // immer verfügbar
   nextBtn.hidden = true;
 
   mcForm.innerHTML = '';
@@ -237,17 +300,14 @@ function setUIForQuestion(q){
     });
 
     mcForm.onsubmit = (e) => { e.preventDefault(); handleMCSubmit(q, allowMultiple); };
-    // Submit on click any radio + Enter:
-    mcForm.addEventListener('change', () => {});
-    revealBtn.hidden = false;
   }else{
     inputForm.hidden = false;
     textInput.value = '';
     textInput.focus();
     inputForm.onsubmit = (e) => { e.preventDefault(); handleInputSubmit(q); };
-    revealBtn.hidden = false;
   }
-  // source meta (epoch, architect)
+
+  // Quelle/Meta
   sourceMetaEl.textContent = [q.building, (q.architects||[]).join(', '), q.year ? `${q.year}` : '', Array.isArray(q.epoch)? q.epoch.join(' / ') : (q.epoch||'')].filter(Boolean).join(' • ');
   revealBtn.onclick = () => showFeedback(false, q, true);
   nextBtn.onclick = () => askNext();
@@ -255,7 +315,7 @@ function setUIForQuestion(q){
 
 function showFeedback(isCorrect, q, reveal=false){
   feedbackEl.hidden = false;
-  feedbackEl.className = `feedback ${isCorrect ? 'ok' : 'bad'}`;
+  feedbackEl.className = `feedback ${isCorrect ? 'ok' : (reveal ? '' : 'bad')}`;
   const ep = Array.isArray(q.epoch) ? q.epoch.join(' / ') : (q.epoch||'');
   const who = (q.architects && q.architects.length) ? `von ${q.architects.join(', ')} ` : '';
   const when = q.year ? `(${q.year})` : (q.yearRange ? `(${q.yearRange})` : '');
@@ -341,6 +401,7 @@ async function askNext(){
   engine.count++;
   counterEl.textContent = (engine.total===Infinity) ? `∞` : `${engine.count}/${engine.total}`;
   const title = engine.pack?.meta?.title || (Array.isArray(q.epoch) ? q.epoch.join(' / ') : q.epoch) || 'Allgemein';
+  headingEl.textContent = engine.mode==='epoch' ? (engine.pack?.meta?.title || 'Lernen') : 'Zufallslernen';
   setUIForQuestion(q);
 }
 
@@ -352,7 +413,7 @@ let engine;
     const pack = await loadQuestionsFor(epochId);
     if(!pack.questions.length){
       headingEl.textContent = pack.meta?.title || 'Unbekannte Kategorie';
-      subEl.textContent = 'Dieses Datenpaket ist noch leer.';
+      subEl.textContent = pack.meta?.period || '';
       document.getElementById('learnMain').innerHTML = `<p style="padding:18px">Für diese Kategorie sind noch keine Fragen hinterlegt. Ergänze eine JSON in <code>${(await getCatalogItemById(epochId))?.dataPath || 'data/questions/...json'}</code>.</p>`;
       counterEl.textContent = '0/0';
       return;
