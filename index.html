@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baugeschichte & Stadtbaugeschichte – Trainer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230056ff'/><rect x='30' y='25' width='40' height='50' fill='white'/></svg>">
+  <meta name="color-scheme" content="light dark" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Baugeschichte & Stadtbaugeschichte Trainer</h1>
+    <div class="points-pill" id="pointsPill" title="Dein Gesamtfortschritt">🔥 <span id="pointsValue">0</span> Punkte</div>
+  </header>
+
+  <main id="catalogRoot" class="catalog-root" aria-live="polite">
+    <!-- JS rendert hier die Oberkategorien + Karten -->
+  </main>
+
+  <!-- Floating Action Button + Menü -->
+  <button id="fab" class="fab" aria-haspopup="true" aria-controls="fabMenu" aria-expanded="false" title="Zufalls-Lernen">
+    <span class="fab-icon">🎲</span>
+  </button>
+  <nav id="fabMenu" class="fab-menu" aria-hidden="true">
+    <button data-mode="random" data-sets="BGI" class="fab-menu-item">Baugeschichte I</button>
+    <button data-mode="random" data-sets="BGII+STBG" class="fab-menu-item">Baugeschichte II & Stadtbaugeschichte</button>
+    <button data-mode="random" data-sets="BGI+BGII+STBG" class="fab-menu-item">Beide Module</button>
+    <button data-mode="random" data-sets="BONUS" class="fab-menu-item">Baugeschichte allgemein (Bonus)</button>
+  </nav>
+
+  <footer class="app-footer">
+    <small>Made for learning • Fortschritt wird lokal gespeichert</small>
+  </footer>
+
+  <script src="js/main.js" type="module"></script>
+</body>
+</html>

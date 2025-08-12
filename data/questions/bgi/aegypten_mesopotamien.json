@@ -1,0 +1,53 @@
+{
+  "meta": { "id": "bgi_aegypten_mesopotamien", "title": "Ägypten & Mesopotamien", "period": "ca. 3000 – 500 v. Chr." },
+  "questions": [
+    {
+      "id": "bgi_am_1",
+      "type": "mc_building",
+      "prompt": "Wie heißt dieses Bauwerk?",
+      "image": "assets/images/bgi/aegypten_mesopotamien.jpg",
+      "building": "Stufenpyramide des Djoser",
+      "architects": ["Imhotep"],
+      "year": -2650,
+      "epoch": "Ägypten und Mesopotamien",
+      "difficulty": 1,
+      "feedback": "Die Stufenpyramide des Djoser (ca. 2650 v. Chr.) gilt als Werk des Imhotep."
+    },
+    {
+      "id": "bgi_am_2",
+      "type": "mc_text",
+      "prompt": "Wie heißt die tempelartige Architekturform Mesopotamiens?",
+      "options": ["Basilika", "Zikkurat", "Cella", "Peripteros"],
+      "correctOptions": ["Zikkurat"],
+      "difficulty": 1,
+      "feedback": "Die Zikkurat ist die charakteristische mesopotamische Stufenplattform."
+    },
+    {
+      "id": "bgi_am_3",
+      "type": "mc_architect",
+      "prompt": "Welcher Name wird mit der Djoser-Pyramide verbunden?",
+      "image": "assets/images/bgi/aegypten_mesopotamien.jpg",
+      "architects": ["Imhotep"],
+      "allowMultiple": false,
+      "difficulty": 1,
+      "feedback": "Imhotep wird als Architekt der Djoser-Pyramide überliefert."
+    },
+    {
+      "id": "bgi_am_4",
+      "type": "input_text",
+      "prompt": "Wie nennt man die Grabanlagen der ägyptischen Könige bei Theben (Plural)?",
+      "accept": ["tal der könige", "königsgräber", "valley of the kings"],
+      "epoch": "Ägypten und Mesopotamien",
+      "difficulty": 2,
+      "feedback": "Gemeint ist das Tal der Könige."
+    },
+    {
+      "id": "bgi_am_5",
+      "type": "epoch_mc",
+      "prompt": "Die Zikkurat von Ur ordnet man welcher Epoche zu?",
+      "epoch": "Ägypten und Mesopotamien",
+      "difficulty": 1,
+      "feedback": "Mesopotamische Zikkurate gehören zu den frühen Hochkulturen."
+    }
+  ]
+}

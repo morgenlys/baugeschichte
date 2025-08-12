@@ -1,0 +1,133 @@
+[
+  {
+    "group": "BAUGESCHICHTE I",
+    "tag": "BGI",
+    "items": [
+      {
+        "id": "bgi_steinzeit",
+        "kicker": "Baugeschichte I",
+        "title": "Steinzeit",
+        "period": "ab ca. 600.000 v. Chr.",
+        "image": "assets/images/bgi/steinzeit.jpg",
+        "dataPath": "data/questions/bgi/steinzeit.json",
+        "available": true
+      },
+      {
+        "id": "bgi_aegypten_mesopotamien",
+        "kicker": "Baugeschichte I",
+        "title": "Ägypten und Mesopotamien",
+        "period": "ca. 3000 – 500 v. Chr.",
+        "image": "assets/images/bgi/aegypten_mesopotamien.jpg",
+        "dataPath": "data/questions/bgi/aegypten_mesopotamien.json",
+        "available": true
+      },
+      {
+        "id": "bgi_griechenland_klassik",
+        "kicker": "Baugeschichte I",
+        "title": "Griechenland – Archaisch/Klassisch",
+        "period": "800 – 336 v. Chr.",
+        "image": "assets/images/bgi/griechenland_klassik.jpg",
+        "dataPath": "data/questions/bgi/griechenland_klassik.json",
+        "available": true
+      },
+      {
+        "id": "bgi_hellenistisch",
+        "kicker": "Baugeschichte I",
+        "title": "Hellenistische Architektur",
+        "period": "336 – 140 v. Chr.",
+        "image": "assets/images/bgi/hellenistisch.jpg",
+        "dataPath": "data/questions/bgi/hellenistisch.json",
+        "available": true
+      },
+      {
+        "id": "bgi_roemisch",
+        "kicker": "Baugeschichte I",
+        "title": "Römische Architektur",
+        "period": "ca. 170 v. Chr. – 300 n. Chr.",
+        "image": "assets/images/bgi/roemisch.jpg",
+        "dataPath": "data/questions/bgi/roemisch.json",
+        "available": true
+      },
+      {
+        "id": "bgi_spaetantike",
+        "kicker": "Baugeschichte I",
+        "title": "Spätantike",
+        "period": "300 – 600",
+        "image": "assets/images/bgi/spaetantike.jpg",
+        "dataPath": "data/questions/bgi/spaetantike.json",
+        "available": false
+      },
+      {
+        "id": "bgi_karolingisch_romanisch",
+        "kicker": "Baugeschichte I",
+        "title": "Karolingische & Romanische Architektur",
+        "period": "ca. 750 – 1200",
+        "image": "assets/images/bgi/romanisch.jpg",
+        "dataPath": "data/questions/bgi/karolingisch_romanisch.json",
+        "available": false
+      },
+      {
+        "id": "bgi_gotik",
+        "kicker": "Baugeschichte I",
+        "title": "Gotische Architektur",
+        "period": "1130 – 1450",
+        "image": "assets/images/bgi/gotik.jpg",
+        "dataPath": "data/questions/bgi/gotik.json",
+        "available": true
+      }
+    ]
+  },
+  {
+    "group": "BAUGESCHICHTE II",
+    "tag": "BGII",
+    "items": [
+      { "id": "bgii_steinzeit", "kicker": "Baugeschichte II", "title": "Steinzeit", "period": "ab ca. 600.000 v. Chr.", "image": "assets/images/bgi/steinzeit.jpg", "dataPath": "data/questions/bgii/steinzeit.json", "available": false },
+      { "id": "bgii_aegypten_mesopotamien", "kicker": "Baugeschichte II", "title": "Ägypten und Mesopotamien", "period": "ca. 3000 – 500 v. Chr.", "image": "assets/images/bgi/aegypten_mesopotamien.jpg", "dataPath": "data/questions/bgii/aegypten_mesopotamien.json", "available": false },
+      { "id": "bgii_griechenland_klassik", "kicker": "Baugeschichte II", "title": "Griechenland – Arch./Klass.", "period": "800 – 336 v. Chr.", "image": "assets/images/bgi/griechenland_klassik.jpg", "dataPath": "data/questions/bgii/griechenland_klassik.json", "available": false },
+      { "id": "bgii_hellenistisch", "kicker": "Baugeschichte II", "title": "Hellenistische Architektur", "period": "336 – 140 v. Chr.", "image": "assets/images/bgi/hellenistisch.jpg", "dataPath": "data/questions/bgii/hellenistisch.json", "available": false },
+      { "id": "bgii_roemisch", "kicker": "Baugeschichte II", "title": "Römische Architektur", "period": "ca. 170 v. Chr. – 300 n. Chr.", "image": "assets/images/bgi/roemisch.jpg", "dataPath": "data/questions/bgii/roemisch.json", "available": false },
+      { "id": "bgii_spaetantike", "kicker": "Baugeschichte II", "title": "Spätantike", "period": "300 – 600", "image": "assets/images/bgi/spaetantike.jpg", "dataPath": "data/questions/bgii/spaetantike.json", "available": false },
+      { "id": "bgii_karolingisch_romanisch", "kicker": "Baugeschichte II", "title": "Karolingische & Romanische Architektur", "period": "ca. 750 – 1200", "image": "assets/images/bgi/romanisch.jpg", "dataPath": "data/questions/bgii/karolingisch_romanisch.json", "available": false },
+      { "id": "bgii_gotik", "kicker": "Baugeschichte II", "title": "Gotische Architektur", "period": "ca. 1130 – 1450", "image": "assets/images/bgi/gotik.jpg", "dataPath": "data/questions/bgii/gotik.json", "available": false },
+      { "id": "bgii_renaissance", "kicker": "Baugeschichte II", "title": "Renaissance", "period": "ca. 1420 – 1550", "image": "assets/images/bgii/renaissance.jpg", "dataPath": "data/questions/bgii/renaissance.json", "available": true },
+      { "id": "bgii_barock", "kicker": "Baugeschichte II", "title": "Barock", "period": "ca. 1500 – 1750", "image": "assets/images/bgii/barock.jpg", "dataPath": "data/questions/bgii/barock.json", "available": true },
+      { "id": "bgii_klassizismus", "kicker": "Baugeschichte II", "title": "Klassizismus", "period": "ca. 1750 – 1830", "image": "assets/images/bgii/klassizismus.jpg", "dataPath": "data/questions/bgii/klassizismus.json", "available": true },
+      { "id": "bgii_historismus", "kicker": "Baugeschichte II", "title": "Historismus & Gründerzeit (inkl. Industriearchitektur)", "period": "ca. 1830 – 1900", "image": "assets/images/bgii/historismus.jpg", "dataPath": "data/questions/bgii/historismus.json", "available": false },
+      { "id": "bgii_jugendstil", "kicker": "Baugeschichte II", "title": "Jugendstil", "period": "ca. 1890 – 1914", "image": "assets/images/bgii/jugendstil.jpg", "dataPath": "data/questions/bgii/jugendstil.json", "available": false },
+      { "id": "bgii_moderne", "kicker": "Baugeschichte II", "title": "Moderne (inkl. Expressionismus, Neue Sachlichkeit, Bauhaus)", "period": "ca. 1910 – 1939", "image": "assets/images/bgii/moderne.jpg", "dataPath": "data/questions/bgii/moderne.json", "available": true },
+      { "id": "bgii_nachkriegsmoderne", "kicker": "Baugeschichte II", "title": "Nachkriegsmoderne (inkl. High-Tech-Architektur)", "period": "ca. 1945 – 1990", "image": "assets/images/bgii/nachkriegsmoderne.jpg", "dataPath": "data/questions/bgii/nachkriegsmoderne.json", "available": false },
+      { "id": "bgii_postmoderne", "kicker": "Baugeschichte II", "title": "Postmoderne", "period": "ab ca. 1968", "image": "assets/images/bgii/postmoderne.jpg", "dataPath": "data/questions/bgii/postmoderne.json", "available": false }
+    ]
+  },
+  {
+    "group": "STADTBAUGESCHICHTE",
+    "tag": "STBG",
+    "items": [
+      { "id": "stbg_praehistorie", "kicker": "Stadtbaugeschichte", "title": "Prähistorie", "period": "", "image": "assets/images/stbg/praehistorie.jpg", "dataPath": "data/questions/stbg/praehistorie.json", "available": false },
+      { "id": "stbg_fruehe_hochkulturen", "kicker": "Stadtbaugeschichte", "title": "Frühe Hochkulturen", "period": "", "image": "assets/images/stbg/fruehe_hochkulturen.jpg", "dataPath": "data/questions/stbg/fruehe_hochkulturen.json", "available": false },
+      { "id": "stbg_griechischer_staedtebau", "kicker": "Stadtbaugeschichte", "title": "Griechischer Städtebau", "period": "(Athen; Planstädte)", "image": "assets/images/stbg/griechischer_staedtebau.jpg", "dataPath": "data/questions/stbg/griechischer_staedtebau.json", "available": true },
+      { "id": "stbg_roemischer_staedtebau", "kicker": "Stadtbaugeschichte", "title": "Römischer Städtebau", "period": "(Pompeji; Planstädte)", "image": "assets/images/stbg/roemischer_staedtebau.jpg", "dataPath": "data/questions/stbg/roemischer_staedtebau.json", "available": false },
+      { "id": "stbg_mittelalter", "kicker": "Stadtbaugeschichte", "title": "Städtebau im Mittelalter", "period": "(Transformation; ital. Stadtstaaten: Florenz)", "image": "assets/images/stbg/mittelalter.jpg", "dataPath": "data/questions/stbg/mittelalter.json", "available": false },
+      { "id": "stbg_idealstadt_renaissance", "kicker": "Stadtbaugeschichte", "title": "Idealstadt der Renaissance", "period": "", "image": "assets/images/stbg/idealstadt_renaissance.jpg", "dataPath": "data/questions/stbg/idealstadt_renaissance.json", "available": false },
+      { "id": "stbg_barock", "kicker": "Stadtbaugeschichte", "title": "Städtebau im Barock", "period": "", "image": "assets/images/stbg/barock.jpg", "dataPath": "data/questions/stbg/barock.json", "available": false },
+      { "id": "stbg_neue_welt", "kicker": "Stadtbaugeschichte", "title": "Die „neue Welt“", "period": "", "image": "assets/images/stbg/neue_welt.jpg", "dataPath": "data/questions/stbg/neue_welt.json", "available": false },
+      { "id": "stbg_klassizismus", "kicker": "Stadtbaugeschichte", "title": "Klassizismus (München & Athen)", "period": "", "image": "assets/images/stbg/klassizismus.jpg", "dataPath": "data/questions/stbg/klassizismus.json", "available": false },
+      { "id": "stbg_gross_berlin", "kicker": "Stadtbaugeschichte", "title": "Groß-Berlin", "period": "", "image": "assets/images/stbg/gross_berlin.jpg", "dataPath": "data/questions/stbg/gross_berlin.json", "available": true }
+    ]
+  },
+  {
+    "group": "BONUS",
+    "tag": "BONUS",
+    "items": [
+      {
+        "id": "bonus_allgemein",
+        "kicker": "Bonus",
+        "title": "Baugeschichte allgemein",
+        "period": "Epochen-Mix",
+        "image": "assets/images/bgii/klassizismus.jpg",
+        "dataPath": "data/questions/bonus/allgemein.json",
+        "available": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lernmodus – Baugeschichte</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="color-scheme" content="light dark" />
+</head>
+<body class="learn-body">
+  <header class="learn-header">
+    <a class="back-link" href="index.html" aria-label="Zurück zur Startseite">← Zurück</a>
+    <div class="learn-title">
+      <h2 id="learnHeading">Lernen</h2>
+      <div class="learn-sub" id="learnSub"></div>
+    </div>
+    <div class="learn-counter">
+      <span id="counter">0/20</span>
+    </div>
+  </header>
+
+  <main class="learn-main" id="learnMain">
+    <!-- Fragenkarte -->
+    <article id="card" class="question-card">
+      <figure class="q-image-wrap">
+        <img id="qImage" alt="" />
+      </figure>
+      <div id="qPrompt" class="q-prompt"></div>
+
+      <!-- Multiple Choice Container -->
+      <form id="mcForm" class="mc-form" hidden></form>
+
+      <!-- Freitext Container -->
+      <form id="inputForm" class="input-form" hidden>
+        <input id="textInput" type="text" placeholder="Antwort eingeben …" autocomplete="off" />
+        <button class="primary" id="submitBtn" type="submit">Prüfen</button>
+      </form>
+
+      <div id="feedback" class="feedback" hidden></div>
+
+      <div class="actions">
+        <button id="revealBtn" class="ghost" hidden>Lösung anzeigen</button>
+        <button id="nextBtn" class="primary" hidden>Weiter</button>
+      </div>
+    </article>
+  </main>
+
+  <footer class="learn-footer">
+    <small id="sourceMeta"></small>
+  </footer>
+
+  <script src="js/learn.js" type="module"></script>
+</body>
+</html>

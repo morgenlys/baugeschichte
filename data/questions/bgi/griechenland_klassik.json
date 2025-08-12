@@ -1,0 +1,53 @@
+{
+  "meta": { "id": "bgi_griechenland_klassik", "title": "Griechenland – Archaisch/Klassisch", "period": "800 – 336 v. Chr." },
+  "questions": [
+    {
+      "id": "bgi_gr_1",
+      "type": "mc_building",
+      "prompt": "Wie heißt dieses Gebäude?",
+      "image": "assets/images/bgi/griechenland_klassik.jpg",
+      "building": "Parthenon",
+      "architects": ["Iktinos", "Kallikrates"],
+      "yearRange": "-447--432",
+      "epoch": "Griechenland (klassisch)",
+      "difficulty": 1,
+      "feedback": "Der Parthenon (447–432 v. Chr.) in Athen – klassischer Peripteros."
+    },
+    {
+      "id": "bgi_gr_2",
+      "type": "mc_text",
+      "prompt": "Welche Säulenordnung gehört NICHT zur griechischen Antike?",
+      "options": ["Dorinisch", "Ionisch", "Korinthisch", "Komposit"],
+      "correctOptions": ["Komposit"],
+      "difficulty": 2,
+      "feedback": "Die Kompositordnung ist römisch (Mischform)."
+    },
+    {
+      "id": "bgi_gr_3",
+      "type": "mc_architect",
+      "prompt": "Wer gilt als Architekt des Parthenon?",
+      "image": "assets/images/bgi/griechenland_klassik.jpg",
+      "architects": ["Iktinos", "Kallikrates"],
+      "allowMultiple": true,
+      "difficulty": 2,
+      "feedback": "Iktinos und Kallikrates werden genannt; Phidias leitete die Bildhauerarbeiten."
+    },
+    {
+      "id": "bgi_gr_4",
+      "type": "input_text",
+      "prompt": "Wie heißt der offene Marktplatz der griechischen Stadt?",
+      "accept": ["agora"],
+      "epoch": "Griechenland (klassisch)",
+      "difficulty": 1,
+      "feedback": "Der zentrale Platz heißt Agora."
+    },
+    {
+      "id": "bgi_gr_5",
+      "type": "epoch_mc",
+      "prompt": "Den Parthenon ordnet man welcher Epoche zu?",
+      "epoch": "Griechenland (klassisch)",
+      "difficulty": 1,
+      "feedback": "Der Parthenon ist ein Höhepunkt der Klassik."
+    }
+  ]
+}

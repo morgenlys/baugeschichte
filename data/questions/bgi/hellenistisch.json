@@ -1,0 +1,11 @@
+{
+  "meta": { "id": "bgi_hellenistisch", "title": "Hellenistische Architektur", "period": "336 – 140 v. Chr." },
+  "questions": [
+    { "id": "bgi_hel_1", "type": "mc_text", "prompt": "Welche Entwicklung prägt die hellenistische Stadtplanung?", "options": ["Orthogonale Rasterpläne", "Ringstraßen mit Radialen (Barock)", "Autobahnanschlüsse", "NUR organisches Wachstum"], "correctOptions": ["Orthogonale Rasterpläne"], "difficulty": 1, "feedback": "Regelmäßige Hippodamische Raster sind typisch." },
+    { "id": "bgi_hel_2", "type": "input_text", "prompt": "Wie heißt das regelmäßige Stadtgrundriss-System (nach einem griechischen Planer benannt)?", "accept": ["hippodamisches system", "hippodamos-plan", "hippodamischer plan", "rasterplan"], "epoch": "Hellenistische Architektur", "difficulty": 2, "feedback": "Benannt nach Hippodamos von Milet." },
+    { "id": "bgi_hel_3", "type": "mc_building", "prompt": "Welches Wunder der Antike steht für die hellenistische Monumentalität?", "image": "assets/images/bgi/hellenistisch.jpg", "building": "Leuchtturm von Alexandria", "epoch": "Hellenistische Architektur", "difficulty": 1, "feedback": "Der Pharos (Leuchtturm) von Alexandria." },
+    { "id": "bgi_hel_4", "type": "epoch_mc", "prompt": "Das Theater von Epidauros (4. Jh. v. Chr.) ordnet man …", "epoch": "Hellenistische Architektur", "difficulty": 1, "feedback": "Spätes Klassik/hellenistisch – enorme Zuschauerkapazitäten." },
+    { "id": "bgi_hel_5", "type": "mc_text", "prompt": "Welches Bauelement wird im Hellenismus weiter verfeinert und großmaßstäblich eingesetzt?", "options": ["Bogen und Gewölbe", "Stahlbetonskelett", "Gusseisenstützen", "Vorhangfassade"], "correctOptions": ["Bogen und Gewölbe"], "difficulty": 2, "feedback": "Vor allem in Verbindung mit römischer Technik."
+    }
+  ]
+}
