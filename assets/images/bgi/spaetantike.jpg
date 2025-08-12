@@ -1,0 +1,50 @@
+{
+  "meta": { "id": "bgi_steinzeit", "title": "Steinzeit", "period": "ab ca. 600.000 v. Chr." },
+  "questions": [
+    {
+      "id": "bgi_stn_1",
+      "type": "mc_text",
+      "prompt": "Welche Bauform ist für die Jungsteinzeit typisch?",
+      "options": ["Kraggewölbe", "Megalithbau (Dolmen/Menhir)", "Gussbetonrahmen", "Stahlfachwerk"],
+      "correctOptions": ["Megalithbau (Dolmen/Menhir)"],
+      "difficulty": 1,
+      "feedback": "Megalithbauten wie Dolmen und Menhire prägen die Jungsteinzeit."
+    },
+    {
+      "id": "bgi_stn_2",
+      "type": "mc_building",
+      "prompt": "Wie heißt diese Anlage?",
+      "image": "assets/images/bgi/steinzeit.jpg",
+      "building": "Stonehenge",
+      "epoch": "Steinzeit",
+      "difficulty": 1,
+      "feedback": "Stonehenge (späte Jungsteinzeit/Frühbronzezeit) – monumentaler Steinkreis in Südengland."
+    },
+    {
+      "id": "bgi_stn_3",
+      "type": "input_year",
+      "prompt": "In welchem Jahrtausend entstand Stonehenge (Beginn Bauphase)? Tippe eine Jahreszahl (v. Chr. als positive Zahl).",
+      "yearRange": "3000-2000",
+      "difficulty": 2,
+      "feedback": "Stonehenge: Bauphasen etwa 3000–2000 v. Chr."
+    },
+    {
+      "id": "bgi_stn_4",
+      "type": "input_text",
+      "prompt": "Nenne den Fachbegriff für großformatige prähistorische Steinsetzungen (Oberbegriff).",
+      "accept": ["megalithbau", "megalithik", "megalithe"],
+      "epoch": "Steinzeit",
+      "difficulty": 2,
+      "feedback": "Der Oberbegriff lautet Megalithbau."
+    },
+    {
+      "id": "bgi_stn_5",
+      "type": "epoch_mc",
+      "prompt": "Stonehenge ordnet man welcher Epoche zu?",
+      "image": "assets/images/bgi/steinzeit.jpg",
+      "epoch": "Steinzeit",
+      "difficulty": 1,
+      "feedback": "Stonehenge gehört zur (späten) Steinzeit/Frühbronzezeit."
+    }
+  ]
+}
